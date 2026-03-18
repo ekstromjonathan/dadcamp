@@ -45,24 +45,27 @@ export const program = {
     {
       day: "Fredag 1. mai",
       items: [
-        { time: "ettermiddagen", text: "Oppmøte ved Aarholt-tunet gård — felles gåtur til Bøketunet" },
-        { time: "kvelden", text: "Grillfest og felles måltid, aktiviteter" },
-        { time: "sen kveld", text: "Bålkos, pinnebrød og kveldssamling" },
+        { time: "kl 17.00", text: "Oppmøte ved Aarholt-tunet gård" },
+        { time: "kl 17.30", text: "Felles gåtur til Bøketunet" },
+        { time: "kl 19.00", text: "Grillfest og felles måltid" },
+        { time: "kvelden", text: "Aktiviteter, bålkos og pinnebrød" },
       ],
     },
     {
       day: "Lørdag 2. mai",
       items: [
-        { time: "formiddagen", text: "Felles frokost (havregrøt), aktiviteter og lunsj" },
-        { time: "ettermiddagen", text: "Aktiviteter — hinderløyper og kanopadling" },
-        { time: "kvelden", text: "Middag, snacksbord ved bålet, aktiviteter i mørket (husk hodelykt)" },
+        { time: "kl 09.00", text: "Felles frokost (havregrøt)" },
+        { time: "formiddagen", text: "Aktiviteter og lunsj" },
+        { time: "kl 18.00", text: "Middag" },
+        { time: "kvelden", text: "Snacksbord ved bålet, aktiviteter i mørket (husk hodelykt)" },
       ],
     },
     {
       day: "Søndag 3. mai",
       items: [
-        { time: "formiddagen", text: "Frokost, aktiviteter og lunsj" },
-        { time: "ettermiddagen", text: "Opprydding og avreise" },
+        { time: "kl 09.00", text: "Frokost" },
+        { time: "formiddagen", text: "Aktiviteter og lunsj" },
+        { time: "kl 13.00", text: "Opprydding og avreise" },
       ],
     },
   ],

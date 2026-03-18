@@ -1,5 +1,5 @@
 ---
-import { practical, packing } from "../data/content";
+import { practical } from "../data/content";
 ---
 
 <section id="praktisk" class="bg-cream border-t border-forest/10">
@@ -22,47 +22,6 @@ import { practical, packing } from "../data/content";
           </p>
         </div>
       ))}
-    </div>
-
-    <!-- Packing list -->
-    <div class="mt-16 grid md:grid-cols-3 gap-0 border-t border-forest/15">
-
-      <div class="py-8 md:pr-10 border-b md:border-b-0 md:border-r border-forest/10">
-        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Bør ha</p>
-        <ul class="space-y-2">
-          {packing.mustHave.map((item) => (
-            <li class="flex items-start gap-3 text-sm text-forest/70">
-              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="py-8 md:px-10 border-b md:border-b-0 md:border-r border-forest/10">
-        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Kjekt å ha</p>
-        <ul class="space-y-2">
-          {packing.niceToHave.map((item) => (
-            <li class="flex items-start gap-3 text-sm text-forest/70">
-              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="py-8 md:pl-10">
-        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Mat dere tar med selv</p>
-        <ul class="space-y-2">
-          {packing.food.map((item) => (
-            <li class="flex items-start gap-3 text-sm text-forest/70">
-              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
     </div>
 
     <!-- Images -->

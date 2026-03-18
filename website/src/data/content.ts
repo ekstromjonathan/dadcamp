@@ -4,8 +4,7 @@
 
 export const site = {
   title: "DADCAMP",
-  description:
-    "Bli med på høyterskel uformell overnattingstur for fedre og barn!",
+  description: "En uformell overnattingstur for fedre og barn ute i naturen. 1.–3. mai 2026, Aarholt-tunet.",
   lang: "nb",
   url: "https://dadcamp.no",
 };
@@ -13,45 +12,55 @@ export const site = {
 export const event = {
   name: "DADCAMP",
   tagline: "Bli med!",
-  dates: "10. – 12. april 2026",
-  dateShort: "10.–12. april",
-  location: "TBA",
-  contactUrl: "/contact",
+  dates: "1.–3. mai 2026",
+  dateShort: "1.–3. mai",
+  location: "Aarholt-tunet",
+  contactUrl: "https://spond.com/invite/LJACR",
+};
+
+export const spond = {
+  url: "https://spond.com/invite/LJACR",
+  label: "Bli med i Spond-gruppa",
+  notice: "All kommunikasjon skjer via Spond — meld deg inn der for å bli holdt oppdatert.",
 };
 
 export const nav = [
   { label: "Hva?", href: "/#hva" },
   { label: "Program", href: "/#program" },
   { label: "Praktisk", href: "/#praktisk" },
-  { label: "Bli med", href: "/contact" },
+  { label: "Sted", href: "/#sted" },
+  { label: "Bli med", href: "https://spond.com/invite/LJACR" },
 ];
 
 export const what = {
-  heading: "HVA?",
-  body: `Dette er en tur hvor det viktigste er å være sammen — fedre og barn, ute i naturen. Vi setter opp telt, henger opp hengekøyer, eller sover rett under stjernene for de som ønsker det. Kvelden samles vi rundt bålet for å lage mat, dele snacks, prate og kjenne på fellesskapet.`,
-  highlights: ["Rusfritt", "Helt gratis", "Åpent for alle aldre"],
+  heading: "Hva er DADCAMP?",
+  body: `Fedre og barn, på et gårdsbruk i Vestfold. Vi setter leir, tenner bål og er til stede — uten agenda.`,
+  highlights: ["Rusfritt", "Gratis å delta", "Du kan bli med på deler eller alt"],
 };
 
 export const program = {
   heading: "Program",
+  note: "Du bestemmer selv om du er med på deler eller hele helgen.",
   days: [
     {
-      day: "Fredag 10. april",
+      day: "Fredag 1. mai",
       items: [
-        { time: "kl 18.00", text: "Samles ved... TBA" },
-        { time: "kl 19.00", text: "Vi setter leir" },
+        { time: "kl 18.00", text: "Vi åpner helgen med burger — vi stiller i stand. Kom som du er." },
+        { time: "kvelden", text: "Leir settes opp, bål tennes, kvelden er vår" },
       ],
     },
     {
-      day: "Lørdag 11. april",
+      day: "Lørdag 2. mai",
       items: [
-        { time: "kl 11.00", text: "Felles lek" },
-        { time: "kl 12.00", text: "Matlaging rundt bålet" },
+        { time: "dagen", text: "Fri lek, turer, fellesaktiviteter" },
+        { time: "kvelden", text: "Matlaging og bål — ta med din egen mat" },
       ],
     },
     {
-      day: "Søndag 12. april",
-      items: [{ time: "kl 13.00", text: "Avslutter og rusler tilbake" }],
+      day: "Søndag 3. mai",
+      items: [
+        { time: "formiddag", text: "Rydding og avreise i eget tempo" },
+      ],
     },
   ],
 };
@@ -61,45 +70,40 @@ export const practical = {
   sections: [
     {
       title: "Overnatting",
-      icon: "🏕️",
-      body: "Ute i telt, hengekøye eller under åpen himmel – ta med det dere selv ønsker å bruke. Det finnes utedo på stedet — ta med eget toalettpapir.",
+      icon: "🏕",
+      body: "Gapahuker, hengekøyer eller telt — du velger selv. Ta med det du er komfortabel med.",
     },
     {
       title: "Mat",
-      icon: "🍳",
-      body: "Alle tar med egen mat, vann og det de trenger for turen. Vi stiller med store panner og noen tarper/presseninger for felles matlaging og samlingsområde. Ta gjerne med litt ekstra snacks eller drikke til en hyggelig kveld rundt bålet.",
+      icon: "🍔",
+      body: "Fredag er vi vertskap for burger. Resten av helgen tar alle med sin egen mat og drikke. Vi har plass til felles matlaging.",
     },
     {
-      title: "Klær og utstyr",
-      icon: "🎒",
-      body: "Husk å ta med klær etter vær — men hvis det bøtter ned så må vi kanskje avlyse. Hvis barnet ditt går på skolen er de hjertelig velkommen!",
+      title: "Pris",
+      icon: "✌",
+      body: "Arrangementet er gratis. Det er mulig å bli betalende medlem — mer informasjon om det finner du i Spond.",
     },
   ],
 };
 
-export const cta = {
-  heading: "Bli med?",
-  body: "Dette er en gyllen anledning til å skape minner, oppleve naturen sammen og ta den gode drøsen rundt bålet når kvelden faller på. Pakk sekken og bli med på en tur der fellesskap, enkelhet og gode opplevelser står i sentrum!",
-  buttonLabel: "Meld deg på",
-  buttonUrl: "/contact",
+export const venue = {
+  name: "Aarholt-tunet",
+  address: "Årholtveien 80, 3160 Stokke",
+  mapsUrl: "https://maps.google.com/?q=Årholtveien+80,+3160+Stokke,+Norway",
+  embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d10.28!3d59.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDEzJzEyLjAiTiAxMMKwMTYnNDguMCJF!5e0!3m2!1sen!2sno!4v1234567890",
+  // Use the real embed — update this URL if needed from Google Maps
+  googleMapsEmbed: `https://maps.google.com/maps?q=%C3%85rholtveien+80%2C+3160+Stokke&output=embed`,
 };
 
-export const organizers = {
-  names: "Anders & Jonathan",
-  tagline: "⨯⨯⨯",
+export const cta = {
+  heading: "Bli med.",
+  body: "En helg for fedre og barn. Aarholt-tunet, 1.–3. mai 2026. Pakk sekken.",
+  buttonLabel: "Meld deg på i Spond",
+  buttonUrl: "https://spond.com/invite/LJACR",
 };
 
 export const contact = {
   heading: "Bli med på DADCAMP",
-  intro:
-    "Fyll ut skjemaet under så tar vi kontakt med mer informasjon om oppmøtested og andre detaljer.",
-  // Change this to your actual form endpoint (e.g. Formspree, Netlify Forms, etc.)
-  formAction: "https://formspree.io/f/YOUR_FORM_ID",
-  fields: {
-    name: "Fullt navn",
-    email: "E-post",
-    children: "Antall barn som blir med",
-    message: "Spørsmål eller kommentarer (valgfritt)",
-  },
-  submitLabel: "Send påmelding",
+  intro: "All påmelding og kommunikasjon skjer via Spond. Klikk lenken for å bli med i gruppa.",
+  spondUrl: "https://spond.com/invite/LJACR",
 };

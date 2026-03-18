@@ -1,53 +1,73 @@
 ---
-import { event } from "../data/content";
+import { event, spond } from "../data/content";
 ---
 
-<section
-  class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-forest text-cream"
->
-  <!-- Background image -->
+<section class="relative h-screen min-h-[600px] flex flex-col overflow-hidden bg-forest">
+
+  <!-- Video background -->
   <div class="absolute inset-0">
-    <img
-      src="/images/bonfire.png"
-      alt="Bålplass ved vannet"
-      class="w-full h-full object-cover opacity-40"
-    />
-    <div class="absolute inset-0 bg-gradient-to-b from-forest/60 via-forest/30 to-forest/80"></div>
+    <video
+      class="w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster="/images/bonfire.png"
+    >
+      <source src="/video/hero.webm" type="video/webm" />
+      <source src="/video/hero.mp4" type="video/mp4" />
+      <source src="/video/hero.mov" type="video/quicktime" />
+    </video>
+    <!-- Dark overlay — heavier at top and bottom, lighter in middle -->
+    <div class="absolute inset-0 bg-gradient-to-b from-forest/70 via-forest/20 to-forest/85"></div>
   </div>
 
-  <!-- Content -->
-  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-    <p class="text-bark text-sm font-semibold tracking-[0.25em] uppercase mb-6">
-      {event.dates}
+  <!-- Top edge: LOCATION + DATE bar -->
+  <div class="relative z-10 mt-24 md:mt-28 px-6 md:px-10 flex items-center justify-between text-white/50 text-[10px] font-bold tracking-[0.25em] uppercase">
+    <span>{event.location}</span>
+    <span>{event.dates}</span>
+  </div>
+
+  <!-- Main content — vertical logo centred, no text logo replacement -->
+  <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center">
+
+    <!-- Vertical logo (the real brand asset) -->
+    <div class="w-48 sm:w-64 md:w-72 mb-10 select-none">
+      <img
+        src="/images/logos/logo-vertical.svg"
+        alt="DADCAMP"
+        class="w-full h-auto logo-light"
+        draggable="false"
+      />
+    </div>
+
+    <p class="text-white/70 text-base md:text-lg max-w-sm mx-auto leading-relaxed mb-12 font-light tracking-wide">
+      En helg for fedre og barn.<br />Ute i naturen. Uten agenda.
     </p>
 
-    <h1 class="font-display font-black text-[clamp(5rem,18vw,14rem)] leading-[0.85] tracking-tight mb-8">
-      DAD<br /><em class="not-italic text-ember">CAMP</em>
-    </h1>
-
-    <p class="text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
-      En høyterskel uformell overnattingstur for fedre og barn ute i naturen.
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <!-- CTAs — sharp, no rounded corners -->
+    <div class="flex flex-col sm:flex-row gap-4">
       <a
-        href="/contact"
-        class="bg-ember text-cream px-8 py-4 rounded-full font-semibold text-base hover:bg-bark transition-colors"
+        href={spond.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-forest px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors"
       >
-        {event.tagline} →
+        Bli med i Spond →
       </a>
       <a
         href="/#hva"
-        class="border border-cream/30 text-cream px-8 py-4 rounded-full font-semibold text-base hover:bg-cream/10 transition-colors"
+        class="inline-block border border-white/40 text-white px-8 py-4 text-[11px] font-bold tracking-[0.2em] uppercase hover:border-white/80 transition-colors"
       >
         Les mer ↓
       </a>
     </div>
   </div>
 
-  <!-- Scroll hint -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/40">
-    <span class="text-xs tracking-widest uppercase">Scroll</span>
-    <div class="w-px h-8 bg-cream/30"></div>
+  <!-- Bottom: scroll indicator -->
+  <div class="relative z-10 pb-8 flex flex-col items-center gap-2">
+    <div class="w-px h-12 bg-white/20"></div>
+    <span class="text-white/30 text-[9px] tracking-[0.3em] uppercase">Scroll</span>
   </div>
+
 </section>

@@ -1,36 +1,40 @@
 ---
-import { cta, organizers } from "../data/content";
+import { cta, event } from "../data/content";
 ---
 
-<section class="py-24 md:py-32 bg-cream relative overflow-hidden">
-  <!-- Decorative background -->
-  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
-    <span class="font-display font-black text-[22rem] text-smoke leading-none">
-      DC
-    </span>
+<section class="bg-forest text-cream border-t border-white/10 relative overflow-hidden">
+
+  <!-- Large watermark icon -->
+  <div class="absolute right-0 bottom-0 w-[40vw] max-w-lg opacity-[0.04] translate-x-1/4 translate-y-1/4 pointer-events-none select-none" aria-hidden="true">
+    <img src="/images/logos/icon.svg" alt="" class="w-full logo-light" />
   </div>
 
-  <div class="relative max-w-3xl mx-auto px-6 text-center">
-    <h2 class="font-display font-bold text-5xl md:text-7xl text-forest mb-8 leading-tight">
-      {cta.heading}
-    </h2>
+  <div class="relative max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-36">
+    <div class="max-w-2xl">
 
-    <p class="text-forest/70 text-lg md:text-xl leading-relaxed mb-12 max-w-xl mx-auto">
-      {cta.body}
-    </p>
-
-    <a
-      href={cta.buttonUrl}
-      class="inline-block bg-ember text-cream px-10 py-5 rounded-full font-semibold text-lg hover:bg-bark transition-colors"
-    >
-      {cta.buttonLabel} →
-    </a>
-
-    <div class="mt-20 text-forest/40">
-      <p class="text-sm tracking-[0.3em] uppercase">{organizers.tagline}</p>
-      <p class="mt-2 font-display text-xl font-bold text-forest/60">
-        {organizers.names}
+      <!-- Eyebrow -->
+      <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-8">
+        {event.location} · {event.dates}
       </p>
+
+      <!-- Headline -->
+      <h2 class="text-[clamp(3.5rem,9vw,8rem)] font-light leading-[0.9] tracking-tight text-white mb-10">
+        {cta.heading}
+      </h2>
+
+      <p class="text-white/55 text-base md:text-lg leading-relaxed mb-12 max-w-lg font-light">
+        {cta.body}
+      </p>
+
+      <a
+        href={cta.buttonUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-block bg-white text-forest px-10 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors"
+      >
+        {cta.buttonLabel} →
+      </a>
+
     </div>
   </div>
 </section>

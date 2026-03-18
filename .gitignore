@@ -17,3 +17,6 @@ dist/
 
 # Reference material (original scrape/save-as files)
 .reference/
+
+# Large original video — use converted mp4/webm instead
+website/public/video/*.mov

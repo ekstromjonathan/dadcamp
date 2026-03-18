@@ -1,0 +1,31 @@
+---
+import { program } from "../data/content";
+---
+
+<section id="program" class="py-24 md:py-32 bg-forest text-cream">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="font-display font-bold text-4xl md:text-5xl mb-16 text-center">
+      {program.heading}
+    </h2>
+
+    <div class="space-y-12">
+      {program.days.map((day) => (
+        <div>
+          <h3 class="text-bark text-sm font-semibold tracking-[0.2em] uppercase mb-5">
+            {day.day}
+          </h3>
+          <ul class="space-y-3">
+            {day.items.map((item) => (
+              <li class="flex gap-6 items-baseline border-b border-cream/10 pb-3">
+                <span class="text-cream/40 font-mono text-sm min-w-[5rem] shrink-0">
+                  {item.time}
+                </span>
+                <span class="text-cream/90">{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

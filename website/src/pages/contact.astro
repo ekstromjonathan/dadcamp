@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { contact, event } from "../data/content";
+---
+
+<Layout title="Bli med" description={contact.intro}>
+  <Nav />
+
+  <main class="min-h-screen bg-cream pt-32 pb-24">
+    <div class="max-w-2xl mx-auto px-6">
+      <!-- Header -->
+      <div class="mb-12">
+        <p class="text-bark text-sm font-semibold tracking-[0.2em] uppercase mb-3">
+          {event.dates}
+        </p>
+        <h1 class="font-display font-black text-5xl md:text-6xl text-forest leading-tight">
+          {contact.heading}
+        </h1>
+        <p class="mt-5 text-forest/70 text-lg leading-relaxed">
+          {contact.intro}
+        </p>
+      </div>
+
+      <!-- Form -->
+      <!--
+        Using Formspree for form handling (free tier works great).
+        Replace YOUR_FORM_ID in src/data/content.ts with your Formspree ID.
+        Sign up at https://formspree.io — no backend needed.
+      -->
+      <form
+        action={contact.formAction}
+        method="POST"
+        class="space-y-6"
+      >
+        <div>
+          <label for="name" class="block text-sm font-medium text-forest mb-2">
+            {contact.fields.name} *
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="w-full bg-white border border-smoke rounded-xl px-4 py-3 text-forest placeholder:text-forest/30 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition"
+            placeholder="Ola Nordmann"
+          />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-forest mb-2">
+            {contact.fields.email} *
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="w-full bg-white border border-smoke rounded-xl px-4 py-3 text-forest placeholder:text-forest/30 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition"
+            placeholder="ola@example.com"
+          />
+        </div>
+
+        <div>
+          <label for="children" class="block text-sm font-medium text-forest mb-2">
+            {contact.fields.children} *
+          </label>
+          <select
+            id="children"
+            name="children"
+            required
+            class="w-full bg-white border border-smoke rounded-xl px-4 py-3 text-forest focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition"
+          >
+            <option value="">Velg antall</option>
+            <option value="1">1 barn</option>
+            <option value="2">2 barn</option>
+            <option value="3">3 barn</option>
+            <option value="4+">4 eller flere</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-forest mb-2">
+            {contact.fields.message}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            class="w-full bg-white border border-smoke rounded-xl px-4 py-3 text-forest placeholder:text-forest/30 focus:outline-none focus:ring-2 focus:ring-ember/30 focus:border-ember transition resize-none"
+            placeholder="Har du spørsmål eller noe å dele?"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-ember text-cream py-4 rounded-xl font-semibold text-base hover:bg-bark transition-colors"
+        >
+          {contact.submitLabel} →
+        </button>
+      </form>
+
+      <!-- Back link -->
+      <div class="mt-10 text-center">
+        <a href="/" class="text-sm text-forest/50 hover:text-forest transition-colors">
+          ← Tilbake til forsiden
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

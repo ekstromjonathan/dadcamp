@@ -1,0 +1,47 @@
+---
+import { what } from "../data/content";
+---
+
+<section id="hva" class="py-24 md:py-32 bg-cream">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <!-- Text -->
+      <div>
+        <span class="text-bark text-sm font-semibold tracking-[0.2em] uppercase">
+          {what.heading}
+        </span>
+        <p class="mt-6 text-2xl md:text-3xl font-display leading-snug text-forest">
+          {what.body}
+        </p>
+
+        <ul class="mt-10 flex flex-wrap gap-3">
+          {what.highlights.map((h) => (
+            <li class="flex items-center gap-2 bg-smoke text-forest px-4 py-2 rounded-full text-sm font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-ember inline-block"></span>
+              {h}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Images grid -->
+      <div class="grid grid-cols-2 gap-3">
+        <img
+          src="/images/camp.jpg"
+          alt="Camping i naturen"
+          class="rounded-2xl object-cover w-full h-56 col-span-2"
+        />
+        <img
+          src="/images/feature.jpg"
+          alt="Fedre og barn"
+          class="rounded-2xl object-cover w-full h-40"
+        />
+        <img
+          src="/images/kids.jpg"
+          alt="Barn som leker"
+          class="rounded-2xl object-cover w-full h-40"
+        />
+      </div>
+    </div>
+  </div>
+</section>

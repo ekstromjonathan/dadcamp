@@ -1,0 +1,53 @@
+---
+import { event } from "../data/content";
+---
+
+<section
+  class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-forest text-cream"
+>
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="/images/bonfire.png"
+      alt="Bålplass ved vannet"
+      class="w-full h-full object-cover opacity-40"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-forest/60 via-forest/30 to-forest/80"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+    <p class="text-bark text-sm font-semibold tracking-[0.25em] uppercase mb-6">
+      {event.dates}
+    </p>
+
+    <h1 class="font-display font-black text-[clamp(5rem,18vw,14rem)] leading-[0.85] tracking-tight mb-8">
+      DAD<br /><em class="not-italic text-ember">CAMP</em>
+    </h1>
+
+    <p class="text-cream/80 text-lg md:text-xl max-w-xl mx-auto mb-10 leading-relaxed">
+      En høyterskel uformell overnattingstur for fedre og barn ute i naturen.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/contact"
+        class="bg-ember text-cream px-8 py-4 rounded-full font-semibold text-base hover:bg-bark transition-colors"
+      >
+        {event.tagline} →
+      </a>
+      <a
+        href="/#hva"
+        class="border border-cream/30 text-cream px-8 py-4 rounded-full font-semibold text-base hover:bg-cream/10 transition-colors"
+      >
+        Les mer ↓
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream/40">
+    <span class="text-xs tracking-widest uppercase">Scroll</span>
+    <div class="w-px h-8 bg-cream/30"></div>
+  </div>
+</section>

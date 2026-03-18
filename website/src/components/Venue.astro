@@ -17,7 +17,7 @@ import { venue, event } from "../data/content";
         {venue.name}
       </h2>
 
-      <div class="space-y-0 border-t border-forest/15">
+      <div class="border-t border-forest/15">
         <div class="py-4 border-b border-forest/10">
           <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-forest/35 mb-1">Adresse</p>
           <p class="text-sm text-forest/80">{venue.address}</p>
@@ -26,8 +26,11 @@ import { venue, event } from "../data/content";
           <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-forest/35 mb-1">Dato</p>
           <p class="text-sm text-forest/80">{event.dates}</p>
         </div>
+        <div class="py-4 border-b border-forest/10">
+          <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-forest/35 mb-1">Oppmøte</p>
+          <p class="text-sm text-forest/80">{venue.meetingPoint}</p>
+        </div>
         <div class="py-4">
-          <p class="text-[10px] font-bold tracking-[0.2em] uppercase text-forest/35 mb-3">Veibeskrivelse</p>
           <a
             href={venue.mapsUrl}
             target="_blank"
@@ -38,10 +41,6 @@ import { venue, event } from "../data/content";
           </a>
         </div>
       </div>
-
-      <p class="mt-6 text-xs text-forest/35 leading-relaxed">
-        Aarholt-tunet er et gårdsbruk i Stokke, Vestfold — med plass til å sette opp leir, tenne bål og bruke naturen rundt.
-      </p>
     </div>
 
     <!-- Map embed -->
@@ -49,7 +48,7 @@ import { venue, event } from "../data/content";
       <!-- OpenStreetMap embed — no API key needed -->
       <!-- Centred on Stokke, Vestfold (59.224°N, 10.292°E) -->
       <iframe
-        title="Kart til Aarholt-tunet"
+        title="Kart til Bøketunet ved Aarholt-tunet"
         width="100%"
         height="100%"
         loading="lazy"

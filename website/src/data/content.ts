@@ -4,7 +4,7 @@
 
 export const site = {
   title: "DADCAMP",
-  description: "En uformell overnattingstur for fedre og barn ute i naturen. 1.–3. mai 2026, Aarholt-tunet.",
+  description: "En uformell og lavterskel overnattingstur for fedre og barn. Bøketunet ved Aarholt-tunet, 1.–3. mai 2026.",
   lang: "nb",
   url: "https://dadcamp.no",
 };
@@ -14,7 +14,7 @@ export const event = {
   tagline: "Bli med!",
   dates: "1.–3. mai 2026",
   dateShort: "1.–3. mai",
-  location: "Aarholt-tunet",
+  location: "Bøketunet ved Aarholt-tunet",
   contactUrl: "https://spond.com/invite/LJACR",
 };
 
@@ -34,8 +34,8 @@ export const nav = [
 
 export const what = {
   heading: "Hva er DADCAMP?",
-  body: `Fedre og barn, på et gårdsbruk i Vestfold. Vi setter leir, tenner bål og er til stede — uten agenda.`,
-  highlights: ["Rusfritt", "Gratis å delta", "Du kan bli med på deler eller alt"],
+  body: `Enkelt friluftsliv, bålfyring og gode samtaler i Vestfolds skoger. Det viktigste er å være sammen — fedre og barn ute i naturen.`,
+  highlights: ["Lavterskel for alle", "Du kan bli med på deler eller alt", "Åpent uansett bakgrunn og livssyn"],
 };
 
 export const program = {
@@ -45,21 +45,24 @@ export const program = {
     {
       day: "Fredag 1. mai",
       items: [
-        { time: "kl 18.00", text: "Vi åpner helgen med burger — vi stiller i stand. Kom som du er." },
-        { time: "kvelden", text: "Leir settes opp, bål tennes, kvelden er vår" },
+        { time: "ettermiddagen", text: "Oppmøte ved Aarholt-tunet gård — felles gåtur til Bøketunet" },
+        { time: "kvelden", text: "Grillfest og felles måltid, aktiviteter" },
+        { time: "sen kveld", text: "Bålkos, pinnebrød og kveldssamling" },
       ],
     },
     {
       day: "Lørdag 2. mai",
       items: [
-        { time: "dagen", text: "Fri lek, turer, fellesaktiviteter" },
-        { time: "kvelden", text: "Matlaging og bål — ta med din egen mat" },
+        { time: "formiddagen", text: "Felles frokost (havregrøt), aktiviteter og lunsj" },
+        { time: "ettermiddagen", text: "Aktiviteter — hinderløyper og kanopadling" },
+        { time: "kvelden", text: "Middag, snacksbord ved bålet, aktiviteter i mørket (husk hodelykt)" },
       ],
     },
     {
       day: "Søndag 3. mai",
       items: [
-        { time: "formiddag", text: "Rydding og avreise i eget tempo" },
+        { time: "formiddagen", text: "Frokost, aktiviteter og lunsj" },
+        { time: "ettermiddagen", text: "Opprydding og avreise" },
       ],
     },
   ],
@@ -71,33 +74,55 @@ export const practical = {
     {
       title: "Overnatting",
       icon: "🏕",
-      body: "Gapahuker, hengekøyer eller telt — du velger selv. Ta med det du er komfortabel med.",
+      body: "Primært i gapahuker på området. Du kan også ta med hengekøye, telt eller sove under åpen himmel.",
     },
     {
       title: "Mat",
-      icon: "🍔",
-      body: "Fredag er vi vertskap for burger. Resten av helgen tar alle med sin egen mat og drikke. Vi har plass til felles matlaging.",
+      icon: "🍽",
+      body: "Måltidspakke på 200 kr per familie — inkluderer middag fredag, frokost og middag lørdag. Vi stiller med panner, gryter, drikkevann og kaffe. Ta med mellommåltider, frokost/lunsj søndag og snacks til godteribord.",
     },
     {
-      title: "Pris",
-      icon: "✌",
-      body: "Arrangementet er gratis. Det er mulig å bli betalende medlem — mer informasjon om det finner du i Spond.",
+      title: "Fasiliteter",
+      icon: "🌲",
+      body: "Utedo på området — ta med toalettpapir og antibac. Vanndunker til felles bruk. Tilgang til hinderløyper og kanopadling. Søppel tas med hjem.",
     },
   ],
 };
 
+export const packing = {
+  heading: "Ta med",
+  mustHave: [
+    "Sovepose og liggeunderlag",
+    "Klær etter vær — varm genser, jakke, lue og hansker",
+    "Ekstraskift (sokker og undertøy)",
+    "Tursko",
+    "Hodelykt",
+    "Kopp, tallerken og bestikk",
+    "Vannflaske",
+    "Søppelpose",
+  ],
+  niceToHave: [
+    "Toalettpapir og antibac",
+    "Kniv",
+    "Termos",
+  ],
+  food: [
+    "Mellommåltider (frukt, nøtter, knekkebrød)",
+    "Frokost og lunsj søndag",
+    "Snacks til felles godteribord",
+  ],
+};
+
 export const venue = {
-  name: "Aarholt-tunet",
+  name: "Bøketunet ved Aarholt-tunet",
   address: "Årholtveien 80, 3160 Stokke",
+  meetingPoint: "Oppmøte ved Aarholt-tunet gård, ettermiddagen fredag 1. mai",
   mapsUrl: "https://maps.google.com/?q=Årholtveien+80,+3160+Stokke,+Norway",
-  embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d10.28!3d59.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTnCsDEzJzEyLjAiTiAxMMKwMTYnNDguMCJF!5e0!3m2!1sen!2sno!4v1234567890",
-  // Use the real embed — update this URL if needed from Google Maps
-  googleMapsEmbed: `https://maps.google.com/maps?q=%C3%85rholtveien+80%2C+3160+Stokke&output=embed`,
 };
 
 export const cta = {
-  heading: "Bli med.",
-  body: "En helg for fedre og barn. Aarholt-tunet, 1.–3. mai 2026. Pakk sekken.",
+  heading: "Der magi skapes.",
+  body: "Bøketunet ved Aarholt-tunet, 1.–3. mai 2026. Pakk sekken.",
   buttonLabel: "Meld deg på i Spond",
   buttonUrl: "https://spond.com/invite/LJACR",
 };

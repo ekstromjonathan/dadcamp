@@ -1,5 +1,5 @@
 ---
-import { practical } from "../data/content";
+import { practical, packing } from "../data/content";
 ---
 
 <section id="praktisk" class="bg-cream border-t border-forest/10">
@@ -11,7 +11,7 @@ import { practical } from "../data/content";
 
   <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
 
-    <!-- Three info blocks — table-style layout, not cards -->
+    <!-- Info rows -->
     <div class="border-t border-forest/15">
       {practical.sections.map((section) => (
         <div class="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_16rem_1fr] gap-x-8 gap-y-2 py-8 border-b border-forest/10 items-start">
@@ -24,7 +24,48 @@ import { practical } from "../data/content";
       ))}
     </div>
 
-    <!-- Image + food gif side by side -->
+    <!-- Packing list -->
+    <div class="mt-16 grid md:grid-cols-3 gap-0 border-t border-forest/15">
+
+      <div class="py-8 md:pr-10 border-b md:border-b-0 md:border-r border-forest/10">
+        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Bør ha</p>
+        <ul class="space-y-2">
+          {packing.mustHave.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-forest/70">
+              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="py-8 md:px-10 border-b md:border-b-0 md:border-r border-forest/10">
+        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Kjekt å ha</p>
+        <ul class="space-y-2">
+          {packing.niceToHave.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-forest/70">
+              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="py-8 md:pl-10">
+        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-5">Mat dere tar med selv</p>
+        <ul class="space-y-2">
+          {packing.food.map((item) => (
+            <li class="flex items-start gap-3 text-sm text-forest/70">
+              <span class="w-4 h-px bg-forest/25 flex-shrink-0 mt-2"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Images -->
     <div class="mt-12 grid md:grid-cols-2 gap-2">
       <div class="relative overflow-hidden h-72 md:h-96">
         <img
@@ -42,7 +83,7 @@ import { practical } from "../data/content";
           loading="lazy"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent flex items-end p-6">
-          <p class="text-cream text-sm font-bold tracking-widest uppercase">Fredag — Burger på oss 🔥</p>
+          <p class="text-cream text-sm font-bold tracking-widest uppercase">Middag fredag — vi stiller i stand</p>
         </div>
       </div>
     </div>

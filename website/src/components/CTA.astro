@@ -1,5 +1,5 @@
 ---
-import { cta, event } from "../data/content";
+import { cta, event, spond } from "../data/content";
 ---
 
 <section class="bg-forest text-cream border-t border-white/10 relative overflow-hidden">
@@ -9,32 +9,30 @@ import { cta, event } from "../data/content";
     <img src="/images/logos/icon.svg" alt="" class="w-full logo-light" />
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-36">
-    <div class="max-w-2xl">
+  <div class="relative max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-36 flex flex-col items-start gap-10">
 
-      <!-- Eyebrow -->
-      <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30 mb-8">
-        {event.location} · {event.dates}
-      </p>
+    <!-- Eyebrow -->
+    <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30">
+      {event.location} · {event.dates}
+    </p>
 
-      <!-- Headline -->
-      <h2 class="text-[clamp(3.5rem,9vw,8rem)] font-light leading-[0.9] tracking-tight text-white mb-10">
-        {cta.heading}
-      </h2>
-
-      <p class="text-white/55 text-base md:text-lg leading-relaxed mb-12 max-w-lg font-light">
-        {cta.body}
-      </p>
-
-      <a
-        href={cta.buttonUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="inline-block bg-white text-forest px-10 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors"
-      >
-        {cta.buttonLabel} →
-      </a>
-
+    <!-- DADCAMP wordmark -->
+    <div class="w-56 md:w-72">
+      <img src="/images/logos/wordmark.svg" alt="DADCAMP" class="w-full h-auto logo-light" />
     </div>
+
+    <!-- Slogan -->
+    <p class="text-white/40 text-sm tracking-[0.12em] italic -mt-6">— der magi skapes.</p>
+
+    <!-- CTA -->
+    <a
+      href={spond.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-white text-forest px-10 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors mt-2"
+    >
+      {cta.buttonLabel} →
+    </a>
+
   </div>
 </section>

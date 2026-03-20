@@ -61,7 +61,7 @@ import { venue, event } from "../data/content";
   var js = document.createElement('script');
   js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
   js.onload = function () {
-    var map = L.map('venue-map', { zoomControl: true, scrollWheelZoom: false }).setView([59.224, 10.292], 13);
+    var map = L.map('venue-map', { zoomControl: true, scrollWheelZoom: false }).setView([59.27239, 10.20594], 13);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
@@ -75,7 +75,7 @@ import { venue, event } from "../data/content";
       className: '',
     });
 
-    L.marker([59.224, 10.292], { icon }).addTo(map);
+    L.marker([59.27239, 10.20594], { icon }).addTo(map);
   };
   document.head.appendChild(js);
 })();

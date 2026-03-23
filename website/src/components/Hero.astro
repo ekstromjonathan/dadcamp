@@ -7,17 +7,31 @@ import { event, spond } from "../data/content";
   <!-- Video background -->
   <div class="absolute inset-0">
     <video
+      id="hero-video"
       class="w-full h-full object-cover"
       autoplay
       muted
       loop
       playsinline
       poster="/images/bonfire.png"
+      preload="auto"
     >
-      <source src="/video/hero.webm" type="video/webm" />
       <source src="/video/hero.mp4" type="video/mp4" />
-      <source src="/video/hero.mov" type="video/quicktime" />
+      <source src="/video/hero.webm" type="video/webm" />
     </video>
+    <script>
+      const video = document.getElementById('hero-video');
+      if (video) {
+        // Safari bug: muted attribute must also be set via JS
+        video.muted = true;
+        video.play().catch(() => {});
+        // Safari sometimes ignores the loop attribute — force loop manually
+        video.addEventListener('ended', () => {
+          video.currentTime = 0;
+          video.play().catch(() => {});
+        });
+      }
+    </script>
     <!-- Dark overlay — heavier at top and bottom, lighter in middle -->
     <div class="absolute inset-0 bg-gradient-to-b from-forest/70 via-forest/20 to-forest/85"></div>
   </div>

@@ -18,15 +18,16 @@ import { cta, event, spond } from "../data/content";
       {event.location} · {event.dates}
     </p>
 
-    <div class="reveal w-56 md:w-80" data-reveal-delay="80">
-      <img src="/images/logos/wordmark.svg" alt="DADCAMP" class="logo-light h-auto w-full" />
+    <!-- The full brand lockup: icon, wordmark and slogan as drawn -->
+    <div class="reveal w-64 md:w-[22rem]" data-reveal-delay="80">
+      <img
+        src="/images/logos/slogan.svg"
+        alt="DADCAMP — der magi skapes"
+        class="logo-light h-auto w-full"
+      />
     </div>
 
-    <p class="reveal font-serif text-2xl italic text-amber/80 md:text-3xl" data-reveal-delay="140">
-      — der magi skapes.
-    </p>
-
-    <p class="reveal max-w-md text-[15px] leading-relaxed text-white/50" data-reveal-delay="180">
+    <p class="reveal max-w-md text-[15px] leading-relaxed text-white/50" data-reveal-delay="160">
       {cta.body}
     </p>
 
@@ -35,7 +36,7 @@ import { cta, event, spond } from "../data/content";
       target="_blank"
       rel="noopener noreferrer"
       class="reveal btn btn-primary mt-2 !px-9 !py-4"
-      data-reveal-delay="220"
+      data-reveal-delay="200"
     >
       {cta.buttonLabel} <span class="arrow">→</span>
     </a>

@@ -5,7 +5,7 @@
 export const site = {
   title: "DADCAMP",
   description:
-    "En uformell og lavterskel overnattingstur for fedre og barn. Husvika, Hokavika — 18.–20. september 2026.",
+    "En uformell og lavterskel overnattingstur for fedre og barn. Husvika, Håkavika — 18.–20. september 2026.",
   lang: "nb",
   url: "https://dadcamp.no",
 };
@@ -16,7 +16,7 @@ export const event = {
   dates: "18.–20. september 2026",
   dateShort: "18.–20. sept",
   season: "Høst 2026",
-  location: "Husvika, Hokavika",
+  location: "Husvika, Håkavika",
   contactUrl: "https://spond.com/invite/LJACR",
 };
 
@@ -54,7 +54,7 @@ export const program = {
       day: "Fredag",
       date: "18. september",
       items: [
-        { time: "Ettermiddag", text: "Oppmøte og leirsetting" },
+        { time: "Ettermiddag", text: "Oppmøte og leiretablering" },
         { time: "Kveld", text: "Grill, bål og kveldskos" },
       ],
     },
@@ -97,13 +97,13 @@ export const practical = {
     {
       title: "Oppmøte",
       icon: "pin",
-      body: "Husvika i Hokavika. Mer informasjon om oppmøtested og tid kommer i Spond-gruppa.",
+      body: "Husvika i Håkavika. Mer informasjon om oppmøtested og tid kommer i Spond-gruppa.",
     },
   ],
 };
 
 export const venue = {
-  name: "Husvika, Hokavika",
+  name: "Husvika, Håkavika",
   address: "Nærmere beskrivelse kommer",
   meetingPoint: "Mer informasjon kommer",
   mapsUrl: "https://maps.app.goo.gl/LmB8NUuPuxiUUFU86",
@@ -113,7 +113,7 @@ export const venue = {
 
 export const cta = {
   heading: "Der magi skapes.",
-  body: "Husvika, Hokavika. 18.–20. september 2026. Pakk sekken.",
+  body: "Husvika, Håkavika. 18.–20. september 2026. Pakk sekken.",
   buttonLabel: "Meld deg på i Spond",
   buttonUrl: "https://spond.com/invite/LJACR",
 };

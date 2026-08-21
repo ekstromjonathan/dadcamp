@@ -6,17 +6,18 @@ import { event, spond } from "../data/content";
   <!-- Video background -->
   <div class="absolute inset-0">
     <video
+      id="hero-video"
       class="h-full w-full scale-105 object-cover"
       autoplay
       muted
       loop
       playsinline
-      preload="metadata"
-      poster="/images/bonfire.png"
+      preload="auto"
+      poster="/images/campfire-night.jpeg"
       aria-hidden="true"
     >
-      <source src="/video/hero.webm" type="video/webm" />
       <source src="/video/hero.mp4" type="video/mp4" />
+      <source src="/video/hero.webm" type="video/webm" />
     </video>
 
     <!-- Layered wash: dark top for nav legibility, warm bottom for autumn mood -->
@@ -92,3 +93,16 @@ import { event, spond } from "../data/content";
     <span class="text-[9px] uppercase tracking-[0.3em] text-white/35">Scroll</span>
   </div>
 </section>
+
+<script>
+  // Safari needs muted set in JS and sometimes ignores the loop attribute
+  const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+  if (video) {
+    video.muted = true;
+    video.play().catch(() => {});
+    video.addEventListener("ended", () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
+  }
+</script>

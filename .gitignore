@@ -18,7 +18,8 @@ dist/
 # Reference material (original scrape/save-as files)
 .reference/
 
-# Large original video — use converted mp4/webm instead
+# Master source media — kept out of public/ so builds don't copy it
+.assets/
 website/public/video/*.mov
 
 # Local Claude Code settings (personal)

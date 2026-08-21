@@ -2,37 +2,42 @@
 import { cta, event, spond } from "../data/content";
 ---
 
-<section class="bg-forest text-cream border-t border-white/10 relative overflow-hidden">
+<section class="relative overflow-hidden bg-pine text-cream">
+  <div class="pointer-events-none absolute inset-0 glow-ember" aria-hidden="true"></div>
 
-  <!-- Large watermark icon -->
-  <div class="absolute right-0 bottom-0 w-[40vw] max-w-lg opacity-[0.04] translate-x-1/4 translate-y-1/4 pointer-events-none select-none" aria-hidden="true">
-    <img src="/images/logos/icon.svg" alt="" class="w-full logo-light" />
+  <!-- Oversized watermark icon -->
+  <div
+    class="pointer-events-none absolute -bottom-16 -right-16 w-[42vw] max-w-lg select-none opacity-[0.05]"
+    aria-hidden="true"
+  >
+    <img src="/images/logos/icon.svg" alt="" class="logo-light w-full" />
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-6 md:px-10 py-24 md:py-36 flex flex-col items-start gap-10">
-
-    <!-- Eyebrow -->
-    <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-white/30">
+  <div class="shell relative flex flex-col items-start gap-9 py-24 md:py-36">
+    <p class="reveal chip chip-dark">
       {event.location} · {event.dates}
     </p>
 
-    <!-- DADCAMP wordmark -->
-    <div class="w-56 md:w-72">
-      <img src="/images/logos/wordmark.svg" alt="DADCAMP" class="w-full h-auto logo-light" />
+    <div class="reveal w-56 md:w-80" data-reveal-delay="80">
+      <img src="/images/logos/wordmark.svg" alt="DADCAMP" class="logo-light h-auto w-full" />
     </div>
 
-    <!-- Slogan -->
-    <p class="text-white/40 text-sm tracking-[0.12em] italic -mt-6">— der magi skapes.</p>
+    <p class="reveal font-serif text-2xl italic text-amber/80 md:text-3xl" data-reveal-delay="140">
+      — der magi skapes.
+    </p>
 
-    <!-- CTA -->
+    <p class="reveal max-w-md text-[15px] leading-relaxed text-white/50" data-reveal-delay="180">
+      {cta.body}
+    </p>
+
     <a
       href={spond.url}
       target="_blank"
       rel="noopener noreferrer"
-      class="inline-block bg-white text-forest px-10 py-5 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-cream transition-colors mt-2"
+      class="reveal btn btn-primary mt-2 !px-9 !py-4"
+      data-reveal-delay="220"
     >
-      {cta.buttonLabel} →
+      {cta.buttonLabel} <span class="arrow">→</span>
     </a>
-
   </div>
 </section>

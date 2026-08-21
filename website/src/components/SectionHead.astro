@@ -1,0 +1,52 @@
+---
+interface Props {
+  index: string;
+  label: string;
+  title?: string;
+  intro?: string;
+  tone?: "light" | "dark";
+  class?: string;
+}
+
+const {
+  index,
+  label,
+  title,
+  intro,
+  tone = "light",
+  class: className = "",
+} = Astro.props;
+
+const dark = tone === "dark";
+---
+
+<div class={`reveal ${className}`}>
+  <p class={`chip ${dark ? "chip-dark" : "chip-light"}`}>
+    <span class={dark ? "text-amber/80" : "text-ember"}>{index}</span>
+    {label}
+  </p>
+
+  {
+    title && (
+      <h2
+        class={`mt-6 max-w-2xl text-[clamp(1.9rem,4.6vw,3.1rem)] font-medium leading-[1.08] tracking-tight ${
+          dark ? "text-cream" : "text-forest"
+        }`}
+      >
+        {title}
+      </h2>
+    )
+  }
+
+  {
+    intro && (
+      <p
+        class={`mt-5 max-w-xl text-[15px] leading-relaxed md:text-base ${
+          dark ? "text-white/55" : "text-forest/60"
+        }`}
+      >
+        {intro}
+      </p>
+    )
+  }
+</div>

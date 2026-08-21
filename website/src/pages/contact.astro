@@ -2,57 +2,78 @@
 import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
-import { contact, event, spond } from "../data/content";
+import { contact, event, venue } from "../data/content";
 ---
 
 <Layout title="Bli med" description={contact.intro}>
   <Nav />
 
-  <main class="min-h-screen bg-cream pt-32 pb-24">
-    <div class="max-w-7xl mx-auto px-6 md:px-10">
+  <main class="relative min-h-screen overflow-hidden bg-pine pb-24 pt-36 text-cream md:pt-44">
+    <div class="pointer-events-none absolute inset-0 glow-ember" aria-hidden="true"></div>
 
+    <div class="shell relative">
       <div class="max-w-2xl">
-        <!-- Section label -->
-        <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40 mb-6">
-          {event.dates} · {event.location}
+        <p class="chip chip-dark">
+          <span class="text-amber/80">{event.dateShort} 2026</span>
+          {event.location}
         </p>
 
-        <!-- Heading -->
-        <h1 class="text-[clamp(2.5rem,6vw,5rem)] font-light leading-tight tracking-tight text-forest mb-6">
+        <h1
+          class="mt-8 text-[clamp(2.4rem,6vw,4.5rem)] font-medium leading-[1.03] tracking-tight text-cream"
+        >
           {contact.heading}
         </h1>
 
-        <p class="text-forest/60 text-base md:text-lg leading-relaxed mb-12 max-w-lg">
+        <p class="mt-6 max-w-lg text-base leading-relaxed text-white/55 md:text-lg">
           {contact.intro}
         </p>
 
-        <!-- Spond primary CTA -->
         <a
           href={contact.spondUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="group inline-flex items-center gap-5 bg-forest text-cream px-10 py-6 text-[11px] font-bold tracking-[0.2em] uppercase hover:bg-moss transition-colors mb-12"
+          class="btn btn-primary mt-11 !px-9 !py-4"
         >
-          <img src="/images/logos/icon.svg" alt="" class="w-6 h-6 logo-light opacity-70" aria-hidden="true" />
-          <span>Bli med i Spond</span>
-          <span class="group-hover:translate-x-1 transition-transform">→</span>
+          <img
+            src="/images/logos/icon.svg"
+            alt=""
+            class="logo-light h-5 w-5 opacity-70"
+            aria-hidden="true"
+          />
+          Bli med i Spond <span class="arrow">→</span>
         </a>
 
-        <!-- Supporting info -->
-        <div class="border-t border-forest/10 pt-8 space-y-4">
-          <p class="text-forest/40 text-xs leading-relaxed">
-            Spond er gratis å bruke. Der vil du finne all informasjon om oppmøtested, praktiske detaljer og oppdateringer frem mot helgen. Du kan også lese mer om muligheten for å bli betalende støttemedlem.
-          </p>
-        </div>
-      </div>
+        <!-- Quick facts -->
+        <dl class="mt-14 grid gap-3 sm:grid-cols-3">
+          {
+            [
+              { label: "Dato", value: event.dates },
+              { label: "Sted", value: venue.name },
+              { label: "Oppmøte", value: venue.meetingPoint },
+            ].map((row) => (
+              <div class="card-dark !p-5">
+                <dt class="text-[10px] font-semibold uppercase tracking-label text-white/35">
+                  {row.label}
+                </dt>
+                <dd class="mt-2 text-sm text-white/85">{row.value}</dd>
+              </div>
+            ))
+          }
+        </dl>
 
-      <!-- Back link -->
-      <div class="mt-16">
-        <a href="/" class="text-[10px] font-bold tracking-[0.2em] uppercase text-forest/30 hover:text-forest/60 transition-colors">
+        <p class="mt-10 max-w-lg border-t border-white/10 pt-8 text-xs leading-relaxed text-white/35">
+          Spond er gratis å bruke. Der finner du all informasjon om oppmøtested, praktiske
+          detaljer og oppdateringer frem mot helgen. Du kan også lese mer om muligheten for å
+          bli betalende støttemedlem.
+        </p>
+
+        <a
+          href="/"
+          class="mt-12 inline-block text-[10px] font-semibold uppercase tracking-label text-white/30 transition-colors duration-300 hover:text-white/70"
+        >
           ← Tilbake
         </a>
       </div>
-
     </div>
   </main>
 

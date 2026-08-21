@@ -21,27 +21,62 @@ const pageTitle = title === site.title ? title : `${title} — ${site.title}`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#16251b" />
     <title>{pageTitle}</title>
 
-    <!-- Favicon -->
+    <link rel="canonical" href={site.url} />
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="apple-touch-icon" href="/images/logos/icon.svg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Open Graph -->
+    <!-- Social -->
+    <meta property="og:site_name" content={site.title} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="nb_NO" />
     <meta property="og:url" content={site.url} />
     <meta property="og:image" content={`${site.url}/images/bonfire.png`} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <a
+      href="#hva"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-forest focus:px-5 focus:py-3 focus:text-[11px] focus:font-bold focus:uppercase focus:tracking-label focus:text-cream"
+    >
+      Hopp til innhold
+    </a>
     <slot />
+
+    <script>
+      // Scroll reveal — progressive enhancement, no-op without IO support
+      const targets = document.querySelectorAll<HTMLElement>(".reveal");
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (reduce || !("IntersectionObserver" in window)) {
+        targets.forEach((el) => el.classList.add("is-in"));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              const delay = Number(el.dataset.revealDelay ?? 0);
+              window.setTimeout(() => el.classList.add("is-in"), delay);
+              io.unobserve(el);
+            });
+          },
+          { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+        );
+        targets.forEach((el) => io.observe(el));
+      }
+    </script>
   </body>
 </html>

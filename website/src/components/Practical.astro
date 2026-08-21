@@ -1,51 +1,62 @@
 ---
 import { practical } from "../data/content";
+import SectionHead from "./SectionHead.astro";
+import Icon from "./Icon.astro";
 ---
 
-<section id="praktisk" class="bg-cream border-t border-forest/10">
-
-  <div class="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-2 flex items-center gap-4">
-    <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40">03 — Praktisk</span>
-    <div class="flex-1 h-px bg-forest/10"></div>
+<section id="praktisk" class="relative bg-cream">
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-cream via-cream to-sand/60"
+    aria-hidden="true"
+  >
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-24">
+  <div class="shell relative py-20 md:py-28">
+    <SectionHead index="03" label="Praktisk" title="Ta med det du trenger." intro={practical.intro} />
 
-    <!-- Info rows -->
-    <div class="border-t border-forest/15">
-      {practical.sections.map((section) => (
-        <div class="grid grid-cols-[3rem_1fr] md:grid-cols-[4rem_16rem_1fr] gap-x-8 gap-y-2 py-8 border-b border-forest/10 items-start">
-          <span class="text-2xl leading-none mt-1">{section.icon}</span>
-          <h3 class="text-sm font-bold tracking-wide uppercase text-forest mt-1">{section.title}</h3>
-          <p class="col-start-2 md:col-start-3 text-forest/65 leading-relaxed text-sm max-w-prose">
-            {section.body}
-          </p>
-        </div>
-      ))}
+    <!-- Cards -->
+    <div class="mt-12 grid gap-4 md:mt-16 md:grid-cols-3 md:gap-5">
+      {
+        practical.sections.map((section, i) => (
+          <article class="reveal card group flex flex-col" data-reveal-delay={i * 110}>
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-ember/10 text-ember transition-colors duration-500 group-hover:bg-ember group-hover:text-cream">
+              <Icon name={section.icon as "tent" | "pot" | "pin"} />
+            </span>
+            <h3 class="mt-6 font-display text-lg font-semibold tracking-tight text-forest">
+              {section.title}
+            </h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-forest/60">{section.body}</p>
+          </article>
+        ))
+      }
     </div>
 
-    <!-- Images -->
-    <div class="mt-12 grid md:grid-cols-2 gap-2">
-      <div class="relative overflow-hidden h-72 md:h-96">
+    <!-- Image duo -->
+    <div class="mt-5 grid gap-4 md:mt-6 md:grid-cols-5">
+      <figure class="reveal overflow-hidden rounded-3xl shadow-soft md:col-span-3">
         <img
           src="/images/bonfire.png"
           alt="Bål ved vannet"
-          class="w-full h-full object-cover"
+          class="h-72 w-full object-cover transition-transform duration-[1.2s] ease-out-expo hover:scale-105 md:h-[26rem]"
           loading="lazy"
+          decoding="async"
         />
-      </div>
-      <div class="relative overflow-hidden h-72 md:h-96">
+      </figure>
+
+      <figure class="reveal relative overflow-hidden rounded-3xl shadow-soft md:col-span-2" data-reveal-delay="110">
         <img
           src="/images/food.gif"
           alt="Matlaging rundt bålet"
-          class="w-full h-full object-cover"
+          class="h-72 w-full object-cover md:h-[26rem]"
           loading="lazy"
+          decoding="async"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-forest/60 to-transparent flex items-end p-6">
-          <p class="text-cream text-sm font-bold tracking-widest uppercase">— der magi skapes</p>
-        </div>
-      </div>
+        <figcaption
+          class="absolute inset-0 flex items-end bg-gradient-to-t from-pine/85 via-pine/10 to-transparent p-7"
+        >
+          <p class="font-serif text-2xl italic text-cream">der magi skapes</p>
+        </figcaption>
+      </figure>
     </div>
-
   </div>
 </section>

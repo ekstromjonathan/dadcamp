@@ -1,54 +1,87 @@
 ---
 import { what } from "../data/content";
+import SectionHead from "./SectionHead.astro";
 ---
 
-<section id="hva" class="bg-cream border-t border-forest/10">
-  <!-- Top rule with section label -->
-  <div class="max-w-7xl mx-auto px-6 md:px-10 pt-10 pb-2 flex items-center gap-4">
-    <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-forest/40">01 — Hva er DADCAMP?</span>
-    <div class="flex-1 h-px bg-forest/10"></div>
+<section id="hva" class="relative bg-cream">
+  <!-- Soft paper gradient so the section doesn't read as a flat block -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-sand/50 via-cream to-cream"
+    aria-hidden="true"
+  >
   </div>
 
-  <div class="max-w-7xl mx-auto px-6 md:px-10 grid md:grid-cols-12 gap-0 py-16 md:py-24">
+  <div class="shell relative py-20 md:py-28">
+    <SectionHead index="01" label="Hva er DADCAMP?" />
 
-    <!-- Large statement text — editorial feel -->
-    <div class="md:col-span-6 md:pr-16">
-      <p class="text-[clamp(1.6rem,4vw,2.8rem)] leading-[1.15] font-light text-forest tracking-tight">
-        {what.body}
-      </p>
+    <div class="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-16">
+      <!-- Statement -->
+      <div class="lg:col-span-6">
+        <p
+          class="reveal text-[clamp(1.55rem,3.6vw,2.55rem)] font-light leading-[1.16] tracking-tight text-forest"
+        >
+          {what.body}
+        </p>
 
-      <!-- Highlights — no rounded pills, use ruled lines -->
-      <ul class="mt-12 space-y-0 border-t border-forest/15">
-        {what.highlights.map((h) => (
-          <li class="flex items-center gap-4 py-4 border-b border-forest/15">
-            <span class="w-5 h-px bg-ember flex-shrink-0"></span>
-            <span class="text-sm font-semibold tracking-wide text-forest">{h}</span>
-          </li>
-        ))}
-      </ul>
+        <p class="reveal mt-6 font-serif text-2xl italic text-ember md:text-3xl" data-reveal-delay="80">
+          {what.accent}
+        </p>
+
+        <ul class="mt-11 space-y-3">
+          {
+            what.highlights.map((h, i) => (
+              <li
+                class="reveal flex items-center gap-4 rounded-2xl border border-forest/8 bg-white/50 px-5 py-4 backdrop-blur-sm"
+                data-reveal-delay={100 + i * 90}
+              >
+                <span class="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ember/12">
+                  <svg viewBox="0 0 12 12" class="h-3 w-3 text-ember" fill="none" aria-hidden="true">
+                    <path
+                      d="M2 6.4 4.6 9 10 3"
+                      stroke="currentColor"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span class="text-sm font-medium tracking-tight text-forest/85">{h}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Photo mosaic -->
+      <div class="reveal grid grid-cols-2 gap-3 lg:col-span-6" data-reveal-delay="140">
+        <figure class="col-span-2 overflow-hidden rounded-3xl shadow-soft">
+          <img
+            src="/images/camp.jpg"
+            alt="Leirplass i skogen"
+            class="h-60 w-full object-cover transition-transform duration-[1.2s] ease-out-expo hover:scale-105 md:h-72"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class="overflow-hidden rounded-3xl shadow-soft">
+          <img
+            src="/images/feature.jpg"
+            alt="Fedre og barn ute"
+            class="h-44 w-full object-cover transition-transform duration-[1.2s] ease-out-expo hover:scale-105 md:h-52"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+        <figure class="overflow-hidden rounded-3xl shadow-soft">
+          <img
+            src="/images/kids.jpg"
+            alt="Barn som leker"
+            class="h-44 w-full object-cover transition-transform duration-[1.2s] ease-out-expo hover:scale-105 md:h-52"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
     </div>
-
-    <!-- Photo stack — raw, no border radius -->
-    <div class="md:col-span-6 mt-12 md:mt-0 grid grid-cols-2 gap-2">
-      <img
-        src="/images/camp.jpg"
-        alt="Camping i naturen"
-        class="object-cover w-full h-64 col-span-2"
-        loading="lazy"
-      />
-      <img
-        src="/images/feature.jpg"
-        alt="Fedre og barn"
-        class="object-cover w-full h-44"
-        loading="lazy"
-      />
-      <img
-        src="/images/kids.jpg"
-        alt="Barn som leker"
-        class="object-cover w-full h-44"
-        loading="lazy"
-      />
-    </div>
-
   </div>
 </section>

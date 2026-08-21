@@ -4,7 +4,8 @@
 
 export const site = {
   title: "DADCAMP",
-  description: "En uformell og lavterskel overnattingstur for fedre og barn. Bøketunet ved Aarholt-tunet, 1.–3. mai 2026.",
+  description:
+    "En uformell og lavterskel overnattingstur for fedre og barn. Husvika, Hokavika — 18.–20. september 2026.",
   lang: "nb",
   url: "https://dadcamp.no",
 };
@@ -12,16 +13,18 @@ export const site = {
 export const event = {
   name: "DADCAMP",
   tagline: "Bli med!",
-  dates: "1.–3. mai 2026",
-  dateShort: "1.–3. mai",
-  location: "Bøketunet ved Aarholt-tunet",
+  dates: "18.–20. september 2026",
+  dateShort: "18.–20. sept",
+  season: "Høst 2026",
+  location: "Husvika, Hokavika",
   contactUrl: "https://spond.com/invite/LJACR",
 };
 
 export const spond = {
   url: "https://spond.com/invite/LJACR",
   label: "Bli med i Spond-gruppa",
-  notice: "All kommunikasjon skjer via Spond — meld deg inn der for å bli holdt oppdatert.",
+  notice:
+    "All kommunikasjon skjer via Spond — meld deg inn der for å bli holdt oppdatert.",
 };
 
 export const nav = [
@@ -34,38 +37,43 @@ export const nav = [
 
 export const what = {
   heading: "Hva er DADCAMP?",
-  body: `Enkelt friluftsliv, bålfyring og gode samtaler i Vestfolds skoger. Det viktigste er å være sammen — fedre og barn ute i naturen.`,
-  highlights: ["Lavterskel for alle", "Du kan bli med på deler eller alt", "Åpent uansett bakgrunn og livssyn"],
+  body: `Enkelt friluftsliv, bålfyring og gode samtaler. Det viktigste er å være sammen — fedre og barn ute i naturen.`,
+  accent: "Ingenting fancy. Bare vi, bålet og skogen.",
+  highlights: [
+    "Lavterskel for alle",
+    "Du kan bli med på deler eller alt",
+    "Åpent uansett bakgrunn og livssyn",
+  ],
 };
 
 export const program = {
   heading: "Program",
-  note: "Du bestemmer selv om du er med på deler eller hele helgen.",
+  note: "Oppmøtetid og detaljert program kommer i Spond. Du bestemmer selv om du er med på deler eller hele helgen.",
   days: [
     {
-      day: "Fredag 1. mai",
+      day: "Fredag",
+      date: "18. september",
       items: [
-        { time: "kl 17.00", text: "Oppmøte ved Aarholt-tunet gård" },
-        { time: "kl 17.30", text: "Felles gåtur til Bøketunet" },
-        { time: "kl 19.00", text: "Grillfest og felles måltid" },
-        { time: "kvelden", text: "Aktiviteter, bålkos og pinnebrød" },
+        { time: "Ettermiddag", text: "Oppmøte og leirsetting" },
+        { time: "Kveld", text: "Grill, bål og kveldskos" },
       ],
     },
     {
-      day: "Lørdag 2. mai",
+      day: "Lørdag",
+      date: "19. september",
       items: [
-        { time: "kl 09.00", text: "Felles frokost (havregrøt)" },
-        { time: "formiddagen", text: "Aktiviteter og lunsj" },
-        { time: "kl 18.00", text: "Middag" },
-        { time: "kvelden", text: "Snacksbord ved bålet, aktiviteter i mørket (husk hodelykt)" },
+        { time: "Morgen", text: "Frokost i leiren" },
+        { time: "Formiddag", text: "Aktiviteter og friluftsliv" },
+        { time: "Ettermiddag", text: "Mat på bål" },
+        { time: "Kveld", text: "Snacksbord og bålkos i mørket — husk hodelykt" },
       ],
     },
     {
-      day: "Søndag 3. mai",
+      day: "Søndag",
+      date: "20. september",
       items: [
-        { time: "kl 09.00", text: "Frokost" },
-        { time: "formiddagen", text: "Aktiviteter og lunsj" },
-        { time: "kl 13.00", text: "Opprydding og avreise" },
+        { time: "Morgen", text: "Frokost og rolig start" },
+        { time: "Formiddag", text: "Opprydding og avreise" },
       ],
     },
   ],
@@ -73,65 +81,46 @@ export const program = {
 
 export const practical = {
   heading: "Praktisk",
+  intro:
+    "Enkelt og selvbetjent. Ta med det du trenger for en natt ute — resten ordner seg rundt bålet.",
   sections: [
     {
       title: "Overnatting",
-      icon: "🏕",
-      body: "Primært i gapahuker på området. Du kan også ta med hengekøye, telt eller sove under åpen himmel.",
+      icon: "tent",
+      body: "Ta med telt eller tarp og hengekøye. Sovepose, liggeunderlag og det du måtte trenge for å ha det godt ute.",
     },
     {
       title: "Mat",
-      icon: "🍽",
-      body: "Måltidspakke på 200 kr per familie — inkluderer middag fredag, frokost og middag lørdag. Vi stiller med panner, gryter, drikkevann og kaffe. Ta med mellommåltider, frokost/lunsj søndag og snacks til godteribord.",
+      icon: "pot",
+      body: "Alle står for egen mat i år. Ta med snacks til felles kos rundt bålet — det er halve poenget.",
     },
     {
-      title: "Fasiliteter",
-      icon: "🌲",
-      body: "Utedo på området — ta med toalettpapir og antibac. Vanndunker til felles bruk. Tilgang til hinderløyper og kanopadling. Søppel tas med hjem.",
+      title: "Oppmøte",
+      icon: "pin",
+      body: "Husvika i Hokavika. Mer informasjon om oppmøtested og tid kommer i Spond-gruppa.",
     },
-  ],
-};
-
-export const packing = {
-  heading: "Ta med",
-  mustHave: [
-    "Sovepose og liggeunderlag",
-    "Klær etter vær — varm genser, jakke, lue og hansker",
-    "Ekstraskift (sokker og undertøy)",
-    "Tursko",
-    "Hodelykt",
-    "Kopp, tallerken og bestikk",
-    "Vannflaske",
-    "Søppelpose",
-  ],
-  niceToHave: [
-    "Toalettpapir og antibac",
-    "Kniv",
-    "Termos",
-  ],
-  food: [
-    "Mellommåltider (frukt, nøtter, knekkebrød)",
-    "Frokost og lunsj søndag",
-    "Snacks til felles godteribord",
   ],
 };
 
 export const venue = {
-  name: "Bøketunet ved Aarholt-tunet",
-  address: "Årholtveien 80, 3160 Stokke",
-  meetingPoint: "Oppmøte ved Aarholt-tunet gård, ettermiddagen fredag 1. mai",
-  mapsUrl: "https://maps.google.com/?q=Årholtveien+80,+3160+Stokke,+Norway",
+  name: "Husvika, Hokavika",
+  address: "Nærmere beskrivelse kommer",
+  meetingPoint: "Mer informasjon kommer",
+  mapsUrl: "https://maps.app.goo.gl/LmB8NUuPuxiUUFU86",
+  coords: [59.06076, 10.231269] as [number, number],
+  note: "Vi legger ut oppmøtested, kjørebeskrivelse og parkering i Spond-gruppa i god tid før helgen.",
 };
 
 export const cta = {
   heading: "Der magi skapes.",
-  body: "Bøketunet ved Aarholt-tunet, 1.–3. mai 2026. Pakk sekken.",
+  body: "Husvika, Hokavika. 18.–20. september 2026. Pakk sekken.",
   buttonLabel: "Meld deg på i Spond",
   buttonUrl: "https://spond.com/invite/LJACR",
 };
 
 export const contact = {
   heading: "Bli med på DADCAMP",
-  intro: "All påmelding og kommunikasjon skjer via Spond. Klikk lenken for å bli med i gruppa.",
+  intro:
+    "All påmelding og kommunikasjon skjer via Spond. Klikk lenken for å bli med i gruppa.",
   spondUrl: "https://spond.com/invite/LJACR",
 };

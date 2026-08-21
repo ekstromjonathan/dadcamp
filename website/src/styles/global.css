@@ -3,51 +3,178 @@
 @tailwind utilities;
 
 /* ─────────────────────────────────────────────────────────
-   GRAIN TEXTURE — subtle film grain over everything
+   BASE
    ───────────────────────────────────────────────────────── */
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
-    @apply bg-cream text-forest;
+    @apply bg-cream text-forest antialiased;
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "cv11", "ss01";
     position: relative;
+    overflow-x: hidden;
   }
 
-  /* Film grain overlay */
+  /* Film grain overlay — keeps the analog, outdoorsy feel */
   body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: 9999;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     background-repeat: repeat;
     background-size: 180px 180px;
   }
 
   h1, h2, h3, h4 {
-    letter-spacing: -0.02em;
+    @apply font-display;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
   }
 
-  /* Remove default button/input appearances */
+  p {
+    text-wrap: pretty;
+  }
+
   * {
     box-sizing: border-box;
   }
+
+  :focus-visible {
+    outline: 2px solid theme("colors.ember");
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    @apply bg-ember text-cream;
+  }
 }
 
+/* ─────────────────────────────────────────────────────────
+   COMPONENTS
+   ───────────────────────────────────────────────────────── */
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8 lg:px-10;
+  }
+
+  /* Section label chip — replaces the old bare micro-text */
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5
+           text-[10px] font-semibold uppercase tracking-label;
+  }
+  .chip-dark {
+    @apply border-white/15 bg-white/[0.04] text-white/60;
+  }
+  .chip-light {
+    @apply border-forest/12 bg-forest/[0.035] text-forest/55;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full
+           px-7 py-3.5 text-[11px] font-bold uppercase tracking-label
+           transition-all duration-300 ease-out-expo;
+  }
+  .btn-primary {
+    @apply bg-ember text-cream shadow-soft hover:bg-rust hover:shadow-glow;
+  }
+  .btn-light {
+    @apply bg-cream text-forest hover:bg-white;
+  }
+  .btn-dark {
+    @apply bg-forest text-cream hover:bg-moss;
+  }
+  .btn-ghost-dark {
+    @apply border border-white/25 text-white hover:border-white/60 hover:bg-white/5;
+  }
+  .btn-ghost-light {
+    @apply border border-forest/20 text-forest hover:border-forest/50 hover:bg-forest/5;
+  }
+  .btn .arrow {
+    @apply transition-transform duration-300 ease-out-expo;
+  }
+  .btn:hover .arrow {
+    transform: translateX(3px);
+  }
+
+  .card {
+    @apply rounded-3xl border border-forest/8 bg-white/60 p-7 shadow-soft
+           backdrop-blur-sm transition-all duration-500 ease-out-expo;
+  }
+  .card:hover {
+    @apply -translate-y-1 border-forest/12 shadow-lift;
+  }
+
+  .card-dark {
+    @apply rounded-3xl border border-white/10 bg-white/[0.03] p-7
+           transition-all duration-500 ease-out-expo;
+  }
+  .card-dark:hover {
+    @apply -translate-y-1 border-white/20 bg-white/[0.06];
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   UTILITIES
+   ───────────────────────────────────────────────────────── */
 @layer utilities {
-  /* Invert utility for SVG logos on dark backgrounds */
+  /* Brand SVGs are black — invert them on dark surfaces */
   .logo-light {
     filter: invert(1) brightness(2);
   }
 
-  .section-rule {
-    @apply border-t border-forest/15;
+  /* Warm autumn glow used behind dark sections */
+  .glow-ember {
+    background-image: radial-gradient(
+      60% 60% at 50% 0%,
+      rgba(196, 98, 45, 0.22) 0%,
+      rgba(196, 98, 45, 0) 70%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll reveal — JS adds .is-in when the element enters view */
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.is-in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

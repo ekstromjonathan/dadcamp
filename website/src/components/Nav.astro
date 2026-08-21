@@ -1,76 +1,175 @@
 ---
 import { nav, spond } from "../data/content";
+
+const links = nav.slice(0, -1);
 ---
 
-<header id="site-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent" data-nav>
-  <div class="max-w-7xl mx-auto px-6 md:px-10">
-    <div class="flex items-center justify-between h-16 md:h-20 border-b border-white/10 transition-colors duration-300" data-nav-inner>
-
-      <!-- Logo (white/inverted over hero, dark after scroll) -->
-      <a href="/" class="flex-shrink-0 w-36 md:w-48 group" aria-label="DADCAMP">
+<header
+  id="site-nav"
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out-expo"
+  data-nav
+>
+  <!-- relative z-50 keeps the bar above the mobile menu overlay -->
+  <div class="shell relative z-50">
+    <div
+      class="mt-3 flex h-14 items-center justify-between rounded-full border border-transparent px-4 transition-all duration-500 ease-out-expo md:h-16 md:px-6"
+      data-nav-inner
+    >
+      <!-- Logo -->
+      <a href="/" class="group w-28 shrink-0 md:w-36" aria-label="DADCAMP — til forsiden">
         <img
           src="/images/logos/logo-horizontal.svg"
           alt="DADCAMP"
-          class="w-full h-auto logo-light transition-all duration-300 group-hover:opacity-60"
+          class="logo-light h-auto w-full transition-opacity duration-300 group-hover:opacity-60"
           data-nav-logo
         />
       </a>
 
-      <!-- Links -->
-      <nav class="hidden md:flex items-center gap-10" aria-label="Navigasjon">
-        {nav.slice(0, -1).map((link) => (
+      <!-- Desktop links -->
+      <nav class="hidden items-center gap-9 md:flex" aria-label="Navigasjon">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              class="relative text-[11px] font-semibold uppercase tracking-label text-white transition-colors duration-300 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full"
+              data-nav-link
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <!-- CTA -->
+        <a
+          href={spond.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary hidden !px-5 !py-2.5 sm:inline-flex"
+        >
+          Bli med <span class="arrow">→</span>
+        </a>
+
+        <!-- Mobile toggle -->
+        <button
+          type="button"
+          class="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white transition-colors duration-300 md:hidden"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-nav-toggle
+        >
+          <span class="relative block h-3 w-4">
+            <span
+              class="absolute left-0 top-0 h-[1.5px] w-full rounded bg-current transition-transform duration-300 ease-out-expo"
+              data-bar-top></span>
+            <span
+              class="absolute bottom-0 left-0 h-[1.5px] w-full rounded bg-current transition-transform duration-300 ease-out-expo"
+              data-bar-bottom></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="pointer-events-none invisible fixed inset-x-0 top-0 z-40 origin-top bg-forest/98 pb-8 pt-24 opacity-0 backdrop-blur-xl transition-all duration-500 ease-out-expo md:hidden"
+    data-nav-menu
+  >
+    <nav class="shell flex flex-col" aria-label="Mobilnavigasjon">
+      {
+        links.map((link) => (
           <a
             href={link.href}
-            class="text-[11px] font-bold tracking-[0.18em] uppercase text-white transition-all duration-300 hover:opacity-50"
-            data-nav-link
+            class="border-b border-white/10 py-4 font-display text-2xl font-medium tracking-tight text-cream/90"
+            data-mobile-link
           >
             {link.label}
           </a>
-        ))}
-      </nav>
-
-      <!-- CTA -->
+        ))
+      }
       <a
         href={spond.url}
         target="_blank"
         rel="noopener noreferrer"
-        class="text-[11px] font-bold tracking-[0.18em] uppercase px-5 py-2.5 border-2 border-white text-white transition-all duration-300 hover:opacity-60"
-        data-nav-cta
+        class="btn btn-primary mt-8 w-full"
       >
-        Bli med →
+        Bli med i Spond <span class="arrow">→</span>
       </a>
-    </div>
+    </nav>
   </div>
 </header>
 
 <script>
-  const navEl = document.getElementById('site-nav') as HTMLElement;
-  const inner = navEl.querySelector('[data-nav-inner]') as HTMLElement;
-  const logo  = navEl.querySelector('[data-nav-logo]') as HTMLImageElement;
-  const links = navEl.querySelectorAll('[data-nav-link]') as NodeListOf<HTMLElement>;
-  const cta   = navEl.querySelector('[data-nav-cta]') as HTMLElement;
+  const navEl = document.getElementById("site-nav");
+  if (navEl) {
+    const inner = navEl.querySelector<HTMLElement>("[data-nav-inner]");
+    const logo = navEl.querySelector<HTMLImageElement>("[data-nav-logo]");
+    const links = navEl.querySelectorAll<HTMLElement>("[data-nav-link]");
+    const toggle = navEl.querySelector<HTMLButtonElement>("[data-nav-toggle]");
+    const menu = navEl.querySelector<HTMLElement>("[data-nav-menu]");
+    const barTop = navEl.querySelector<HTMLElement>("[data-bar-top]");
+    const barBottom = navEl.querySelector<HTMLElement>("[data-bar-bottom]");
 
-  function update() {
-    const scrolled = window.scrollY > 80;
+    let menuOpen = false;
 
-    navEl.style.background = scrolled ? 'rgba(245,240,232,0.97)' : 'transparent';
-    inner.style.borderColor = scrolled ? 'rgba(26,46,26,0.1)' : 'rgba(255,255,255,0.1)';
+    function paint() {
+      // Solid pill once scrolled past the hero fold, or whenever the menu is open
+      const solid = window.scrollY > 60;
+      const onDark = !solid || menuOpen;
 
-    logo.classList.toggle('logo-light', !scrolled);
+      if (inner) {
+        inner.style.background = solid && !menuOpen ? "rgba(247,243,234,0.86)" : "transparent";
+        inner.style.borderColor =
+          solid && !menuOpen ? "rgba(22,37,27,0.08)" : "transparent";
+        inner.style.backdropFilter = solid && !menuOpen ? "blur(14px)" : "none";
+        inner.style.boxShadow =
+          solid && !menuOpen ? "0 8px 32px -20px rgba(12,20,16,0.35)" : "none";
+      }
 
-    links.forEach(l => {
-      l.style.color = scrolled ? '#1a2e1a' : '#fff';
+      logo?.classList.toggle("logo-light", onDark);
+      links.forEach((l) => {
+        l.style.color = onDark ? "#f7f3ea" : "#16251b";
+      });
+      if (toggle) {
+        toggle.style.color = onDark ? "#f7f3ea" : "#16251b";
+        toggle.style.borderColor = onDark
+          ? "rgba(255,255,255,0.2)"
+          : "rgba(22,37,27,0.15)";
+      }
+    }
+
+    function setMenu(open: boolean) {
+      menuOpen = open;
+      toggle?.setAttribute("aria-expanded", String(open));
+      toggle?.setAttribute("aria-label", open ? "Lukk meny" : "Åpne meny");
+      document.body.style.overflow = open ? "hidden" : "";
+
+      if (menu) {
+        menu.classList.toggle("pointer-events-none", !open);
+        menu.classList.toggle("invisible", !open);
+        menu.classList.toggle("opacity-0", !open);
+        menu.style.height = open ? "100vh" : "0";
+      }
+      if (barTop && barBottom) {
+        barTop.style.transform = open ? "translateY(5.5px) rotate(45deg)" : "none";
+        barBottom.style.transform = open ? "translateY(-5.5px) rotate(-45deg)" : "none";
+      }
+      paint();
+    }
+
+    toggle?.addEventListener("click", () => setMenu(!menuOpen));
+    navEl
+      .querySelectorAll("[data-mobile-link]")
+      .forEach((l) => l.addEventListener("click", () => setMenu(false)));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && menuOpen) setMenu(false);
     });
 
-    if (scrolled) {
-      cta.style.borderColor = '#1a2e1a';
-      cta.style.color       = '#1a2e1a';
-    } else {
-      cta.style.borderColor = '#fff';
-      cta.style.color       = '#fff';
-    }
+    paint();
+    window.addEventListener("scroll", paint, { passive: true });
   }
-
-  update();
-  window.addEventListener('scroll', update, { passive: true });
 </script>
